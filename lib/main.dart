@@ -1,3 +1,6 @@
+import 'package:finlit/components/themes/theme.dart';
+import 'package:finlit/pages/home.dart';
+import 'package:finlit/pages/pause.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,10 +14,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      theme: AppThemes.darkTheme,
+      home: const PausePage(),
     );
   }
 }
