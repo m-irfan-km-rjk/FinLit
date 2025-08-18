@@ -2,8 +2,11 @@ import 'package:finlit/components/themes/theme.dart';
 import 'package:finlit/pages/home.dart';
 import 'package:finlit/pages/pause.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   runApp(const MyApp());
 }
 

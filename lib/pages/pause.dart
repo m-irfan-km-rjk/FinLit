@@ -14,23 +14,30 @@ class _PausePageState extends State<PausePage> {
 
   @override
   Widget build(BuildContext context) {
+    // screen size helpers
+    final w = MediaQuery.of(context).size.width;
+    final h = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // ===== Title =====
             Text(
               "Paused",
-              style: const TextStyle(
-                fontSize: 64,
+              style: TextStyle(
+                fontSize: w * 0.15, // ~15% of width
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 40),
+
+            SizedBox(height: h * 0.04),
+
             // ====== First Box ======
             Container(
-              width: 376,
-              padding: const EdgeInsets.all(15),
+              width: w * 0.9, // 90% of screen width
+              padding: EdgeInsets.all(w * 0.04),
               decoration: BoxDecoration(
                 color: Theme.of(context).cardColor,
                 borderRadius: BorderRadius.circular(20),
@@ -38,7 +45,7 @@ class _PausePageState extends State<PausePage> {
               child: Column(
                 children: [
                   SettingItem(
-                    fIcon: const Icon(Icons.volume_up, size: 32),
+                    fIcon: Icon(Icons.volume_up, size: w * 0.08),
                     fText: "Sound",
                     fWidget: Switch.adaptive(
                       value: sound,
@@ -49,9 +56,9 @@ class _PausePageState extends State<PausePage> {
                       inactiveTrackColor: Colors.white,
                     ),
                   ),
-                  const SizedBox(height: 15),
+                  SizedBox(height: h * 0.02),
                   SettingItem(
-                    fIcon: const Icon(Icons.music_note, size: 32),
+                    fIcon: Icon(Icons.music_note, size: w * 0.08),
                     fText: "Music",
                     fWidget: Switch.adaptive(
                       value: music,
@@ -62,22 +69,22 @@ class _PausePageState extends State<PausePage> {
                       inactiveTrackColor: Colors.white,
                     ),
                   ),
-                  const SizedBox(height: 15),
+                  SizedBox(height: h * 0.02),
                   SettingItem(
-                    fIcon: const Icon(Icons.text_fields_rounded, size: 32),
+                    fIcon: Icon(Icons.text_fields_rounded, size: w * 0.08),
                     fText: "Font Size",
                     fWidget: IconButton(
-                      iconSize: 50,
+                      iconSize: w * 0.12,
                       onPressed: () {},
                       icon: const Icon(Icons.arrow_right),
                     ),
                   ),
-                  const SizedBox(height: 15),
+                  SizedBox(height: h * 0.02),
                   SettingItem(
-                    fIcon: const Icon(Icons.palette, size: 32),
+                    fIcon: Icon(Icons.palette, size: w * 0.08),
                     fText: "Theme",
                     fWidget: IconButton(
-                      iconSize: 50,
+                      iconSize: w * 0.12,
                       onPressed: () {},
                       icon: const Icon(Icons.sunny),
                     ),
@@ -85,11 +92,13 @@ class _PausePageState extends State<PausePage> {
                 ],
               ),
             ),
-            const SizedBox(height: 25),
+
+            SizedBox(height: h * 0.03),
+
             // ====== Second Box ======
             Container(
-              width: 376,
-              padding: const EdgeInsets.all(15),
+              width: w * 0.9,
+              padding: EdgeInsets.all(w * 0.04),
               decoration: BoxDecoration(
                 color: Theme.of(context).cardColor,
                 borderRadius: BorderRadius.circular(20),
@@ -97,7 +106,7 @@ class _PausePageState extends State<PausePage> {
               child: Column(
                 children: [
                   SettingItem(
-                    fIcon: const Icon(Icons.settings, size: 32),
+                    fIcon: Icon(Icons.settings, size: w * 0.08),
                     fText: "Settings",
                     fWidget: Switch.adaptive(
                       value: sound,
@@ -108,22 +117,22 @@ class _PausePageState extends State<PausePage> {
                       inactiveTrackColor: Colors.white,
                     ),
                   ),
-                  const SizedBox(height: 15),
+                  SizedBox(height: h * 0.02),
                   SettingItem(
-                    fIcon: const Icon(Icons.restart_alt_rounded, size: 32),
+                    fIcon: Icon(Icons.restart_alt_rounded, size: w * 0.08),
                     fText: "Restart",
                     fWidget: IconButton(
-                      iconSize: 50,
+                      iconSize: w * 0.12,
                       onPressed: () {},
                       icon: const Icon(Icons.arrow_right),
                     ),
                   ),
-                  const SizedBox(height: 15),
+                  SizedBox(height: h * 0.02),
                   SettingItem(
-                    fIcon: const Icon(Icons.stop, size: 32),
+                    fIcon: Icon(Icons.stop, size: w * 0.08),
                     fText: "End Quiz",
                     fWidget: IconButton(
-                      iconSize: 50,
+                      iconSize: w * 0.12,
                       onPressed: () {},
                       icon: const Icon(Icons.arrow_right),
                     ),
@@ -131,26 +140,26 @@ class _PausePageState extends State<PausePage> {
                 ],
               ),
             ),
-            SizedBox(height: 62,),
+
+            SizedBox(height: h * 0.06),
+
+            // ====== Continue Button ======
             Container(
-              width: 376,
-              height: 87,
-              padding: EdgeInsets.symmetric(vertical: 25.0),
+              width: w * 0.9,
+              height: h * 0.1, // ~10% of screen height
+              padding: EdgeInsets.symmetric(vertical: h * 0.025),
               decoration: BoxDecoration(
                 color: Theme.of(context).cardColor,
                 borderRadius: BorderRadius.circular(20),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Continue",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 32,
-                    ),
+              child: Center(
+                child: Text(
+                  "Continue",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: w * 0.08, // ~8% of screen width
                   ),
-                ],
+                ),
               ),
             )
           ],
