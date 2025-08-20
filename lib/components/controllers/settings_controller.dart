@@ -23,13 +23,7 @@ class SettingsController extends GetxController {
 
   void toggleNarrator() => narratorEnabled.value = !narratorEnabled.value;
 
-  void increaseFontSize() {
-    if (fontSize.value < 30) fontSize.value += 2;
-  }
-
-  void decreaseFontSize() {
-    if (fontSize.value > 10) fontSize.value -= 2;
-  }
+  void setFontSize(double size) => fontSize.value = size;
 
   void setSpeechRate(double rate) => speechRate.value = rate;
 
