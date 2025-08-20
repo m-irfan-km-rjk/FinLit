@@ -200,6 +200,7 @@ class SettingsPage extends StatelessWidget {
                           Text("Music", style: GoogleFonts.arimo(fontWeight: FontWeight.bold,fontSize: 30),),
                         ],
                       ),
+
                       SizedBox(height: 20,),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
