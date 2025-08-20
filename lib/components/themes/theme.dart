@@ -1,3 +1,4 @@
+import 'package:finlit/components/themes/ficon_extension.dart';
 import 'package:flutter/material.dart';
 
 class AppThemes {
@@ -26,6 +27,12 @@ class AppThemes {
       style: IconButton.styleFrom(
         foregroundColor: Colors.white
       )
-    )
+    ),
+    extensions: [
+      const FIconTheme(
+        backgroundColor: Colors.white,
+        iconColor: Color(0xFF6024B4)
+      ),
+    ]
   );
 }

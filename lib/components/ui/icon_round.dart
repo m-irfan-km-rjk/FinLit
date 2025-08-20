@@ -1,41 +1,29 @@
 import 'package:flutter/material.dart';
+import '../themes/ficon_extension.dart';
 
-class FIcon extends StatefulWidget {
-  Icon fIcon;
-  VoidCallback onPressed;
+class FIcon extends StatelessWidget {
+  final IconData fIcon;
 
-  FIcon({
-    super.key,
-    required this.fIcon,
-    required this.onPressed,
-  });
-
-  @override
-  State<FIcon> createState() => _FIconState();
-}
-
-class _FIconState extends State<FIcon> {
+  const FIcon({super.key, required this.fIcon});
 
   @override
   Widget build(BuildContext context) {
-
-    final buttonStyle = Theme.of(context).elevatedButtonTheme.style;
+    final fIconTheme = Theme.of(context).extension<FIconTheme>();
 
     return Container(
       width: 60,
       height: 60,
-      padding: const EdgeInsets.all(10),
-      decoration: BoxDecoration( // same bg as ElevatedButton
-        borderRadius: BorderRadius.circular(50),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black26,
-            blurRadius: 4,
-            offset: Offset(2, 2),
-          ),
-        ],
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: fIconTheme?.backgroundColor ?? Colors.grey.shade300,
       ),
-      child: widget.fIcon, // your icon
+      child: Center(
+        child: Icon(
+          fIcon,
+          color: fIconTheme?.iconColor,
+          size: 30,
+        ),
+      ),
     );
   }
 }
