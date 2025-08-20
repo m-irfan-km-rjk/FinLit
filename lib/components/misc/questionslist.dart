@@ -32,7 +32,7 @@ List<Question> quizQuestions = [
     qtype: "image",
     qchoices: ["₹200 note", "₹50 note"],
     correctIndex: 0, // ₹50 note is worth more
-    qattachment: "images/currency_notes_comparison.png",
+    qattachment: "assets/images/currency_notes_comparison.jpg",
     qattachmenttype: AttachmentType.image,
     ttsLine: "Look at the image showing different currency notes. Which one is worth more?",
   ),
@@ -42,7 +42,7 @@ List<Question> quizQuestions = [
     qtype: "image",
     qchoices: ["Yes", "No"],
     correctIndex: 0, // "Yes" - water bottle ₹40 + chips ₹30 = ₹70
-    qattachment: "images/items_with_prices.png",
+    qattachment: "assets/images/items_with_prices.png",
     qattachmenttype: AttachmentType.image,
     ttsLine: "Look at the image showing items with their prices. You have seventy rupees. Can you buy water bottle and chips together?",
   ),
@@ -74,7 +74,7 @@ List<Question> quizQuestions = [
     qtype: "audio",
     qchoices: ["ATM", "Printer"],
     correctIndex: 0, // "ATM" is correct (cash dispensing sound)
-    qattachment: "audio/atm_cash_dispensing.mp3",
+    qattachment: "assets/audio/atm_cash_dispensing.mp3",
     qattachmenttype: AttachmentType.audio,
     ttsLine: "Listen to the sound carefully. What machine makes this sound?",
   ),
@@ -84,7 +84,7 @@ List<Question> quizQuestions = [
     qtype: "audio",
     qchoices: ["Coins", "Paper notes"],
     correctIndex: 0, // "Coins" is correct (coins dropping sound)
-    qattachment: "audio/coins_dropping.mp3",
+    qattachment: "assets/audio/coins_dropping.mp3",
     qattachmenttype: AttachmentType.audio,
     ttsLine: "Listen to the sound carefully. Is this sound made by coins or paper notes?",
   ),
@@ -95,7 +95,7 @@ List<Question> quizQuestions = [
     qtype: "scenario",
     qchoices: ["₹51", "₹49"],
     correctIndex: 0, // "₹51" is correct (200 - 149 = 51)
-    qattachment: "images/mobile_recharge_149.png",
+    qattachment: "assets/images/mobile_recharge_149.png",
     qattachmenttype: AttachmentType.image,
     ttsLine: "Look at the mobile recharge screen showing one hundred forty nine rupees recharge plan. You have two hundred rupees in your wallet. After recharge, how much will remain?",
   ),
