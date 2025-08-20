@@ -1,3 +1,4 @@
+import 'package:finlit/components/misc/question.dart';
 import 'package:finlit/components/themes/theme.dart';
 import 'package:finlit/pages/home.dart';
 import 'package:finlit/pages/pause.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: AppThemes.darkTheme,
-      home: const PausePage(),
+      home: Question(qtext: 'how are you?', qtype: 'text', qchoices: ['fine', 'not well'], ttsLine: '1'),
     );
   }
 }

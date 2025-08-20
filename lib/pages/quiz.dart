@@ -1,5 +1,7 @@
+import 'package:finlit/pages/pause.dart';
 import 'package:flutter/material.dart';
-import '../components/misc/questions.dart';
+import 'package:flutter/material.dart' as icon;
+import '../components/misc/question.dart';
 
 class QuizPage extends StatefulWidget {
     const QuizPage({Key? key}) : super(key: key);
@@ -31,6 +33,12 @@ class _QuizPageState extends State<QuizPage> {
         return Scaffold(
             appBar: AppBar(
                 title: const Text('Quiz'),
+                actions: [
+                  IconButton(
+                    onPressed: PauseMenu.new,
+                    icon: icon.Icon(Icons.pause),
+                  ),
+                ],
             ),
             body: Padding(
                 padding: const EdgeInsets.all(16.0),
