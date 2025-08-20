@@ -5,6 +5,7 @@ import 'package:finlit/pages/quiz.dart';
 import 'package:finlit/pages/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get_core/get_core.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
@@ -52,7 +53,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: AppThemes.darkTheme,
-      home: SettingsPage(),
+      home:SettingsPage(),
     );
   }
 }

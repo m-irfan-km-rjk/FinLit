@@ -1,6 +1,5 @@
 import 'package:finlit/components/ui/icon_round.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../components/controllers/settings_controller.dart';
@@ -575,7 +574,7 @@ class SettingsPage extends StatelessWidget {
                           FIcon(fIcon: Icons.mail_rounded),
                           SizedBox(width: 30),
                           Text(
-                            "Contact us",
+                            "Contact Us",
                             style: GoogleFonts.arimo(
                               fontWeight: FontWeight.bold,
                               fontSize: 30,
