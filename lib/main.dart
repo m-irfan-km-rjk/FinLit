@@ -1,6 +1,7 @@
 import 'package:finlit/components/themes/theme.dart';
 import 'package:finlit/pages/home.dart';
 import 'package:finlit/pages/pause.dart';
+import 'package:finlit/pages/quiz.dart';
 import 'package:finlit/pages/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: AppThemes.darkTheme,
-      home: SettingsPage(),
+      home: QuizScreen(),
     );
   }
 }
