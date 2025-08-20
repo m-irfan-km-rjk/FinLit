@@ -575,7 +575,7 @@ class SettingsPage extends StatelessWidget {
                           FIcon(fIcon: Icons.mail_rounded),
                           SizedBox(width: 30),
                           Text(
-                            "Contact Support",
+                            "Contact us",
                             style: GoogleFonts.arimo(
                               fontWeight: FontWeight.bold,
                               fontSize: 30,
