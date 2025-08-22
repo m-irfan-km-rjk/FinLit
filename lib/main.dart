@@ -1,10 +1,8 @@
 import 'package:finlit/components/themes/theme.dart';
 import 'package:finlit/pages/home.dart';
-import 'package:finlit/pages/pause.dart';
-import 'package:finlit/pages/quiz.dart';
-import 'package:finlit/pages/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,7 +15,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       theme: AppThemes.darkTheme,
       home: Homepage(),
