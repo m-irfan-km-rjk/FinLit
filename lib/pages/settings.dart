@@ -26,7 +26,7 @@ class SettingsPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20.0),
                 ),
                 child: IconButton(
-                  onPressed: () => {},
+                  onPressed: () {},
                   icon: Icon(Icons.arrow_back_rounded, size: 33),
                 ),
               ),
@@ -64,154 +64,130 @@ class SettingsPage extends StatelessWidget {
                   ),
                 ),
                 Divider(color: Colors.white, thickness: 1),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: 19,
-                    right: 19,
-                    top: 9,
-                    bottom: 9,
-                  ),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          FIcon(fIcon: Icons.palette_rounded),
-                          SizedBox(width: 30),
-                          Expanded(
-                            child: Text(
-                              "Theme",
-                              style: GoogleFonts.arimo(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 30,
-                              ),
-                            ),
-                          ),
-                          IconButton(
-                            onPressed: () => {},
-                            icon: Icon(Icons.light_mode_rounded, size: 50),
-                          ),
-                        ],
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ListTile(
+                      contentPadding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                      leading: FIcon(fIcon: Icons.palette_rounded),
+                      title: Text(
+                        "Theme",
+                        style: GoogleFonts.arimo(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30,
+                        ),
                       ),
-                      SizedBox(height: 20),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          FIcon(fIcon: Icons.text_fields_rounded),
-                          SizedBox(width: 30),
-                          Expanded(
-                            child: Text(
-                              "Font Size",
-                              style: GoogleFonts.arimo(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 30,
+                      trailing: IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.light_mode_rounded, size: 45),
+                      ),
+                    ),
+                    ListTile(
+                      contentPadding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                      leading: FIcon(fIcon: Icons.text_fields_rounded),
+                      title: Text(
+                        "Font Size",
+                        style: GoogleFonts.arimo(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30,
+                        ),
+                      ),
+                      trailing: IconButton(
+                        onPressed: () {
+                          showModalBottomSheet(
+                            context: context,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.vertical(
+                                top: Radius.circular(25),
                               ),
                             ),
-                          ),
-                          IconButton(
-                            onPressed: () => {
-                              showModalBottomSheet(
-                                context: context,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.vertical(
-                                    top: Radius.circular(25),
-                                  ),
-                                ),
-                                builder: (context) {
-                                  return Padding(
-                                    padding: const EdgeInsets.all(20),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Text(
-                                          "Choose Font Size",
-                                          style: TextStyle(
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        ListTile(
-                                          leading: Text(
-                                            "A",
-                                            style: TextStyle(
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                          title: Text("Large"),
-                                          onTap: () {
-                                            controller.setFontSize(30);
-                                            Navigator.pop(context);
-                                          },
-                                        ),
-                                        ListTile(
-                                          leading: Text(
-                                            "A",
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                          title: Text("Medium"),
-                                          onTap: () {
-                                            controller.setFontSize(20);
-                                            Navigator.pop(context);
-                                          },
-                                        ),
-                                        ListTile(
-                                          leading: Text(
-                                            "A",
-                                            style: TextStyle(
-                                              fontSize: 10,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                          title: Text("Small"),
-                                          onTap: () {
-                                            controller.setFontSize(15);
-                                            Navigator.pop(context);
-                                          },
-                                        ),
-                                      ],
+                            builder: (context) {
+                              return Padding(
+                                padding: const EdgeInsets.all(20),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text(
+                                      "Choose Font Size",
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
-                                  );
-                                },
-                              ),
+                                    ListTile(
+                                      leading: Text(
+                                        "A",
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      title: Text("Large"),
+                                      onTap: () {
+                                        controller.setFontSize(30);
+                                        Navigator.pop(context);
+                                      },
+                                    ),
+                                    ListTile(
+                                      leading: Text(
+                                        "A",
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      title: Text("Medium"),
+                                      onTap: () {
+                                        controller.setFontSize(20);
+                                        Navigator.pop(context);
+                                      },
+                                    ),
+                                    ListTile(
+                                      leading: Text(
+                                        "A",
+                                        style: TextStyle(
+                                          fontSize: 10,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      title: Text("Small"),
+                                      onTap: () {
+                                        controller.setFontSize(15);
+                                        Navigator.pop(context);
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              );
                             },
-                            icon: Icon(Icons.arrow_right, size: 50),
-                          ),
-                        ],
+                          );
+                        },
+                        icon: Icon(Icons.arrow_right, size: 50),
                       ),
-                      SizedBox(height: 20),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          FIcon(fIcon: Icons.animation_rounded),
-                          SizedBox(width: 30),
-                          Expanded(
-                            child: Text(
-                              "Animations",
-                              style: GoogleFonts.arimo(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 30,
-                              ),
-                            ),
-                          ),
-                          Obx(
+                    ),
+                    ListTile(
+                      contentPadding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                      leading: FIcon(fIcon: Icons.animation_rounded),
+                      title: Text(
+                        "Animations",
+                        style: GoogleFonts.arimo(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30,
+                        ),
+                      ),
+                      trailing: Obx(
                             () => Switch.adaptive(
-                              value: controller.animationsEnabled.value,
-                              onChanged: (value) =>
-                                  controller.toggleAnimations(),
-                              activeColor: const Color(0xFF6024B4),
-                              activeTrackColor: Colors.white,
-                              inactiveThumbColor: const Color(0xFF6024B4),
-                              inactiveTrackColor: Colors.white,
-                            ),
-                          ),
-                        ],
+                          value: controller.animationsEnabled.value,
+                          onChanged: (value) =>
+                              controller.toggleAnimations(),
+                          activeColor: const Color(0xFF6024B4),
+                          activeTrackColor: Colors.white,
+                          inactiveThumbColor: const Color(0xFF6024B4),
+                          inactiveTrackColor: Colors.white,
+                        ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
                 SizedBox(height: 10),
               ],
@@ -241,159 +217,140 @@ class SettingsPage extends StatelessWidget {
                   ),
                 ),
                 Divider(color: Colors.white, thickness: 1),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: 19,
-                    right: 19,
-                    top: 9,
-                    bottom: 9,
-                  ),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          FIcon(fIcon: Icons.mic_rounded),
-                          SizedBox(width: 30),
-                          Expanded(
-                            child: Text(
-                              "Narrator",
-                              style: GoogleFonts.arimo(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 30,
-                              ),
-                            ),
-                          ),
-                          Obx(
-                            () => Switch.adaptive(
-                              value: controller.narratorEnabled.value,
-                              onChanged: (value) => controller.toggleNarrator(),
-                              activeColor: const Color(0xFF6024B4),
-                              activeTrackColor: Colors.white,
-                              inactiveThumbColor: const Color(0xFF6024B4),
-                              inactiveTrackColor: Colors.white,
-                            ),
-                          ),
-                        ],
+                Column(
+                  children: [
+                    ListTile(
+                      contentPadding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                      leading: FIcon(fIcon: Icons.mic_rounded),
+                      title: Text(
+                        "Narrator",
+                        style: GoogleFonts.arimo(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30,
+                        ),
                       ),
-                      SizedBox(height: 20),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          FIcon(fIcon: Icons.record_voice_over_rounded),
-                          SizedBox(width: 30),
-                          Expanded(
-                            child: Text(
-                              "Speech Rate",
-                              style: GoogleFonts.arimo(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 30,
+                      trailing: Obx(
+                            () => Switch.adaptive(
+                          value: controller.narratorEnabled.value,
+                          onChanged: (value) => controller.toggleNarrator(),
+                          activeColor: const Color(0xFF6024B4),
+                          activeTrackColor: Colors.white,
+                          inactiveThumbColor: const Color(0xFF6024B4),
+                          inactiveTrackColor: Colors.white,
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      contentPadding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                      leading: FIcon(fIcon: Icons.record_voice_over_rounded),
+                      title: Text(
+                        "Speech Rate",
+                        style: GoogleFonts.arimo(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30,
+                        ),
+                      ),
+                      trailing: IconButton(
+                        onPressed: () {
+                          showModalBottomSheet(
+                            context: context,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.vertical(
+                                top: Radius.circular(25),
                               ),
                             ),
-                          ),
-                          IconButton(
-                            onPressed: () => {
-                              showModalBottomSheet(
-                                context: context,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.vertical(
-                                    top: Radius.circular(25),
-                                  ),
-                                ),
-                                builder: (context) {
-                                  return Padding(
-                                    padding: const EdgeInsets.all(20),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Text(
-                                          "Choose Speech Rate",
+                            builder: (context) {
+                              return Padding(
+                                padding: const EdgeInsets.all(20),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text(
+                                      "Choose Speech Rate",
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    ListTile(
+                                        leading: Text(
+                                          "2x",
                                           style: TextStyle(
-                                            fontSize: 20,
+                                            fontSize: 14,
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
-                                        ListTile(
-                                          leading: Text(
-                                            "2x",
-                                            style: TextStyle(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                          title: Text("Fast"),
-                                          onTap: () {
-                                            controller.setSpeechRate(2);
-                                            Navigator.pop(context);
-                                          }),
-                                        ListTile(
-                                          leading: Text(
-                                            "1.5x",
-                                            style: TextStyle(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                          title: Text("Medium"),
-                                          onTap: () {
-                                            controller.setSpeechRate(1.5);
-                                            Navigator.pop(context);
-                                          },
+                                        title: Text("Fast"),
+                                        onTap: () {
+                                          controller.setSpeechRate(2);
+                                          Navigator.pop(context);
+                                        }),
+                                    ListTile(
+                                      leading: Text(
+                                        "1.5x",
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold,
                                         ),
-                                        ListTile(
-                                          leading: Text(
-                                            "1x",
-                                            style: TextStyle(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                          title: Text("Normal"),
-                                          onTap: () {
-                                            controller.setSpeechRate(1);
-                                            Navigator.pop(context);
-                                          },
-                                        ),
-                                        ListTile(
-                                          leading: Text(
-                                            "0.5x",
-                                            style: TextStyle(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                          title: Text("Slow"),
-                                          onTap: () {
-                                            controller.setSpeechRate(0.5);
-                                            Navigator.pop(context);
-                                          },
-                                        ),
-                                        ListTile(
-                                          leading: Text(
-                                            "0.25x",
-                                            style: TextStyle(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                          title: Text("Very Slow"),
-                                          onTap: () {
-                                            controller.setSpeechRate(0.25);
-                                            Navigator.pop(context);
-                                          },
-                                        ),
-                                      ],
+                                      ),
+                                      title: Text("Medium"),
+                                      onTap: () {
+                                        controller.setSpeechRate(1.5);
+                                        Navigator.pop(context);
+                                      },
                                     ),
-                                  );
-                                },
-                              ),
+                                    ListTile(
+                                      leading: Text(
+                                        "1x",
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      title: Text("Normal"),
+                                      onTap: () {
+                                        controller.setSpeechRate(1);
+                                        Navigator.pop(context);
+                                      },
+                                    ),
+                                    ListTile(
+                                      leading: Text(
+                                        "0.5x",
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      title: Text("Slow"),
+                                      onTap: () {
+                                        controller.setSpeechRate(0.5);
+                                        Navigator.pop(context);
+                                      },
+                                    ),
+                                    ListTile(
+                                      leading: Text(
+                                        "0.25x",
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      title: Text("Very Slow"),
+                                      onTap: () {
+                                        controller.setSpeechRate(0.25);
+                                        Navigator.pop(context);
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              );
                             },
-                            icon: Icon(Icons.arrow_right, size: 50),
-                          ),
-                        ],
+                          );
+                        },
+                        icon: Icon(Icons.arrow_right, size: 50),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
                 SizedBox(height: 10),
               ],
@@ -423,83 +380,61 @@ class SettingsPage extends StatelessWidget {
                   ),
                 ),
                 Divider(color: Colors.white, thickness: 1),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: 19,
-                    right: 19,
-                    top: 9,
-                    bottom: 9,
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          FIcon(fIcon: Icons.music_note),
-                          SizedBox(width: 30),
-                          Text(
-                            "Music",
-                            style: GoogleFonts.arimo(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 30,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Obx(
-                        () => Slider(
-                          value: controller.musicVolume.value,
-                          onChanged: (value) =>
-                              controller.setMusicVolume(value),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ListTile(
+                      contentPadding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                      leading: FIcon(fIcon: Icons.music_note),
+                      title: Text(
+                        "Music",
+                        style: GoogleFonts.arimo(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30,
                         ),
                       ),
-                      SizedBox(height: 34),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          FIcon(fIcon: Icons.volume_up_rounded),
-                          SizedBox(width: 30),
-                          Text(
-                            "Sound Effect",
-                            style: GoogleFonts.arimo(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 30,
-                            ),
-                          ),
-                        ],
+                    ),
+                    Obx(() => Slider(
+                        value: controller.musicVolume.value,
+                        onChanged: (value) =>
+                            controller.setMusicVolume(value),
                       ),
-                      Obx(
-                        () => Slider(
-                          value: controller.soundEffectVolume.value,
-                          onChanged: (value) =>
-                              controller.setSoundEffectVolume(value),
+                    ),
+                    ListTile(
+                      contentPadding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                      leading: FIcon(fIcon: Icons.volume_up_rounded),
+                      title: Text(
+                        "Sound Effects",
+                        style: GoogleFonts.arimo(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30,
                         ),
                       ),
-                      SizedBox(height: 34),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          FIcon(fIcon: Icons.mic_rounded),
-                          SizedBox(width: 30),
-                          Text(
-                            "Narrator",
-                            style: GoogleFonts.arimo(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 30,
-                            ),
-                          ),
-                        ],
+                    ),
+                    Obx(() => Slider(
+                        value: controller.soundEffectVolume.value,
+                        onChanged: (value) =>
+                            controller.setSoundEffectVolume(value),
                       ),
-                      Obx(
-                        () => Slider(
-                          value: controller.narratorVolume.value,
-                          onChanged: (value) =>
-                              controller.setNarratorVolume(value),
+                    ),
+                    ListTile(
+                      contentPadding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                      leading: FIcon(fIcon: Icons.mic_rounded),
+                      title: Text(
+                        "Narrator",
+                        style: GoogleFonts.arimo(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30,
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                    Obx(() => Slider(
+                        value: controller.narratorVolume.value,
+                        onChanged: (value) =>
+                            controller.setNarratorVolume(value),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -528,64 +463,44 @@ class SettingsPage extends StatelessWidget {
                   ),
                 ),
                 Divider(color: Colors.white, thickness: 1),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: 19,
-                    right: 19,
-                    top: 9,
-                    bottom: 9,
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          FIcon(fIcon: Icons.info_rounded),
-                          SizedBox(width: 30),
-                          Text(
-                            "About",
-                            style: GoogleFonts.arimo(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 30,
-                            ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ListTile(
+                      contentPadding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                      leading: FIcon(fIcon: Icons.info_rounded),
+                      title: Text(
+                          "About",
+                          style: GoogleFonts.arimo(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 30,
                           ),
-                        ],
+                        ),
+                    ),
+                    ListTile(
+                      contentPadding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                      leading: FIcon(fIcon: Icons.shield_rounded),
+                      title: Text(
+                        "Privacy Policy",
+                        style: GoogleFonts.arimo(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30,
+                        ),
                       ),
-                      SizedBox(height: 20),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          FIcon(fIcon: Icons.shield_rounded),
-                          SizedBox(width: 30),
-                          Text(
-                            "Privacy Policy",
-                            style: GoogleFonts.arimo(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 30,
-                            ),
-                          ),
-                        ],
+                    ),
+                    ListTile(
+                      contentPadding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                      leading: FIcon(fIcon: Icons.mail_rounded),
+                      title: Text(
+                        "Contact Us",
+                        style: GoogleFonts.arimo(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30,
+                        ),
                       ),
-                      SizedBox(height: 20),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          FIcon(fIcon: Icons.mail_rounded),
-                          SizedBox(width: 30),
-                          Text(
-                            "Contact Us",
-                            style: GoogleFonts.arimo(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 30,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                    )
+                  ],
                 ),
-                SizedBox(height: 10),
               ],
             ),
           ),

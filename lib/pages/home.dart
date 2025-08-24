@@ -1,6 +1,10 @@
 import 'package:finlit/components/themes/theme.dart';
 import 'package:finlit/components/ui/icon_button.dart';
+import 'package:finlit/components/ui/icon_round.dart';
+import 'package:finlit/pages/quiz.dart';
+import 'package:finlit/pages/settings.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Homepage extends StatefulWidget {
@@ -77,49 +81,39 @@ class _HomepageState extends State<Homepage> {
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Padding(
-                  padding: EdgeInsets.only(
-                    left: w * 0.06, // 6% of width
+                  padding: EdgeInsets.only(// 6% of width
                     top: h * 0.025,
                     bottom: h*0.025
                   ),
                   child: Column(
                     children: [
                       // Play Quiz row
-                      Row(
-                        children: [
-                          FButton(
-                            fIcon: const Icon(Icons.play_arrow, size: 32),
-                            onPressed: () {},
+                      ListTile(
+                        leading: FIcon(fIcon: Icons.play_arrow),
+                        title: Text(
+                          "Play Quiz",
+                          style: GoogleFonts.arimo(
+                            fontSize: w * 0.07,
+                            fontWeight: FontWeight.bold,
                           ),
-                          SizedBox(width: w * 0.08),
-                          Text(
-                            "Play Quiz",
-                            style: GoogleFonts.arimo(
-                              fontSize: w * 0.07,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          )
-                        ],
+                        ),
+                        onTap: () {
+                          Get.offAll(() => QuizScreen());
+                        },
                       ),
 
-                      SizedBox(height: h * 0.025),
-
+                      Divider(),
                       // Settings row
-                      Row(
-                        children: [
-                          FButton(
-                            fIcon: const Icon(Icons.settings, size: 32),
-                            onPressed: () {},
+                      ListTile(
+                        leading: FIcon(fIcon: Icons.settings_rounded),
+                        title: Text(
+                          "Settings",
+                          style: GoogleFonts.arimo(
+                            fontSize: w * 0.07,
+                            fontWeight: FontWeight.bold,
                           ),
-                          SizedBox(width: w * 0.08),
-                          Text(
-                            "Settings",
-                            style: GoogleFonts.arimo(
-                              fontSize: w * 0.07,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          )
-                        ],
+                        ),
+                        onTap: () => Get.to(() => SettingsPage()),
                       ),
                     ],
                   ),
