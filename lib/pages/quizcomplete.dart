@@ -1,6 +1,10 @@
 // 📄 lib/components/quiz/quiz_score_card.dart
+import 'package:finlit/pages/home.dart';
+import 'package:finlit/pages/quiz.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../components/controllers/question_controller.dart';
 
 class QuizScoreCard extends StatelessWidget {
   final int correctAnswers;
@@ -304,10 +308,10 @@ class QuizCompletePageWithCard extends StatelessWidget {
                 isDarkTheme: true,
                 onPlayAgain: () {
                   controller.resetQuiz();
-                  Get.offAll(() => const QuizQuestionPage());
+                  Get.offAll(() => const QuizScreen());
                 },
                 onMainMenu: () {
-                  Get.offAll(() => const QuizHomePage());
+                  Get.offAll(() => const Homepage());
                 },
               ),
               const SizedBox(height: 30),
@@ -320,10 +324,10 @@ class QuizCompletePageWithCard extends StatelessWidget {
                 isDarkTheme: false,
                 onPlayAgain: () {
                   controller.resetQuiz();
-                  Get.offAll(() => const QuizQuestionPage());
+                  Get.offAll(() => const QuizScreen());
                 },
                 onMainMenu: () {
-                  Get.offAll(() => const QuizHomePage());
+                  Get.offAll(() => const Homepage());
                 },
               ),
             ],
@@ -331,26 +335,5 @@ class QuizCompletePageWithCard extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-// 📄 Enhanced Quiz Controller with Timer
-class EnhancedQuizController extends GetxController {
-  // ... existing code ...
-  
-  var startTime = DateTime.now().obs;
-  var endTime = DateTime.now().obs;
-  
-  void startQuiz() {
-    startTime.value = DateTime.now();
-    resetQuiz();
-  }
-  
-  void completeQuiz() {
-    endTime.value = DateTime.now();
-  }
-  
-  int get totalTimeInSeconds {
-    return endTime.value.difference(startTime.value).inSeconds;
   }
 }

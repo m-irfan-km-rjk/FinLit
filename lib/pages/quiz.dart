@@ -1,6 +1,7 @@
 import 'package:finlit/components/themes/ficon_extension.dart';
 import 'package:finlit/components/ui/icon_round.dart';
 import 'package:finlit/main.dart';
+import 'package:finlit/pages/pause.dart';
 import 'package:finlit/pages/quizresult.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -66,7 +67,7 @@ class QuizScreen extends StatelessWidget {
               ),
             ],
           ),
-          IconButton(onPressed: (){Get.toNamed(AppRoutes.PAUSE);}, icon: FIcon(Icons.pause_circle_rounded)),
+          IconButton(icon: Icon(Icons.pause_circle_rounded),onPressed: (){Get.to(PausePage());}),
         ],
       ),
     ));

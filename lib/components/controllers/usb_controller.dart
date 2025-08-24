@@ -1,3 +1,4 @@
+import 'package:finlit/components/controllers/question_controller.dart';
 import 'package:get/get.dart';
 import 'package:usb_serial/usb_serial.dart';
 import 'dart:typed_data';
