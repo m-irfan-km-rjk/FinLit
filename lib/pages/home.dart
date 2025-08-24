@@ -1,5 +1,3 @@
-import 'package:finlit/components/themes/theme.dart';
-import 'package:finlit/components/ui/icon_button.dart';
 import 'package:finlit/components/ui/icon_round.dart';
 import 'package:finlit/pages/quiz.dart';
 import 'package:finlit/pages/settings.dart';
@@ -80,43 +78,37 @@ class _HomepageState extends State<Homepage> {
                   color: Theme.of(context).cardColor,
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: Padding(
-                  padding: EdgeInsets.only(// 6% of width
-                    top: h * 0.025,
-                    bottom: h*0.025
-                  ),
-                  child: Column(
-                    children: [
-                      // Play Quiz row
-                      ListTile(
-                        leading: FIcon(fIcon: Icons.play_arrow),
-                        title: Text(
-                          "Play Quiz",
-                          style: GoogleFonts.arimo(
-                            fontSize: w * 0.07,
-                            fontWeight: FontWeight.bold,
-                          ),
+                child: Column(
+                  children: [
+                    // Play Quiz row
+                    ListTile(
+                      contentPadding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                      leading: FIcon(fIcon: Icons.play_arrow),
+                      title: Text(
+                        "Play Quiz",
+                        style: GoogleFonts.arimo(
+                          fontSize: w * 0.07,
+                          fontWeight: FontWeight.bold,
                         ),
-                        onTap: () {
-                          Get.offAll(() => QuizScreen());
-                        },
                       ),
-
-                      Divider(),
-                      // Settings row
-                      ListTile(
-                        leading: FIcon(fIcon: Icons.settings_rounded),
-                        title: Text(
-                          "Settings",
-                          style: GoogleFonts.arimo(
-                            fontSize: w * 0.07,
-                            fontWeight: FontWeight.bold,
-                          ),
+                      onTap: () {
+                        Get.offAll(() => QuizScreen());
+                      },
+                    ),
+                    // Settings row
+                    ListTile(
+                      contentPadding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                      leading: FIcon(fIcon: Icons.settings_rounded),
+                      title: Text(
+                        "Settings",
+                        style: GoogleFonts.arimo(
+                          fontSize: w * 0.07,
+                          fontWeight: FontWeight.bold,
                         ),
-                        onTap: () => Get.to(() => SettingsPage()),
                       ),
-                    ],
-                  ),
+                      onTap: () => Get.to(() => SettingsPage()),
+                    ),
+                  ],
                 ),
               ),
             ],
