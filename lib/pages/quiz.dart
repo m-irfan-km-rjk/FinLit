@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:finlit/components/themes/ficon_extension.dart';
 import 'package:finlit/components/ui/icon_round.dart';
 import 'package:finlit/main.dart';
@@ -21,7 +22,7 @@ class QuizScreen extends StatelessWidget {
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              _buildHeader(controller),
+              Header(),
               const SizedBox(height: 20),
               Expanded(
                 child: Obx(() => controller.answered.value
@@ -35,29 +36,26 @@ class QuizScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader(QuizController controller) {
-    return Obx(() => Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.1),
-        borderRadius: BorderRadius.circular(15),
-        border: Border.all(color: Colors.white.withOpacity(0.2)),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            children: [
-              Container(
+  Widget Header() {
+    return 
+          ListTile(
+              leading: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: const BoxDecoration(
                   color: Colors.blue,
                   shape: BoxShape.circle,
                 ),
-                child: const Icon(Icons.quiz, color: Colors.white, size: 20),
+                child: Obx(() => Text(
+                  '${Get.find<QuizController>().timeleft.value}',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                )),
               ),
-              const SizedBox(width: 12),
-              const Text(
+
+              title: Text(
                 'FinLit',
                 style: TextStyle(
                   color: Colors.red,
@@ -65,12 +63,10 @@ class QuizScreen extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-            ],
-          ),
-          IconButton(icon: Icon(Icons.pause_circle_rounded),onPressed: (){Get.to(PausePage());}),
-        ],
-      ),
-    ));
+          
+          trailing:IconButton(icon: Icon(Icons.pause_circle_rounded),onPressed: (){Get.to(PausePage());}),
+        
+    );
   }
 
   Widget _buildQuestionScreen(QuizController controller) {

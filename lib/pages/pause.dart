@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../components/ui/setting_item.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 
 class PausePage extends StatefulWidget {
   const PausePage({super.key});
@@ -44,10 +44,10 @@ class _PausePageState extends State<PausePage> {
               ),
               child: Column(
                 children: [
-                  SettingItem(
-                    fIcon: Icon(Icons.volume_up, size: w * 0.08),
-                    fText: "Sound",
-                    fWidget: Switch.adaptive(
+                  ListTile(
+                    leading: Icon(Icons.volume_up, size: w * 0.08),
+                    title:Text( "Sound"),
+                    trailing: Switch.adaptive(
                       value: sound,
                       onChanged: (value) => setState(() => sound = value),
                       activeColor: const Color(0xFF6024B4),
@@ -56,11 +56,10 @@ class _PausePageState extends State<PausePage> {
                       inactiveTrackColor: Colors.white,
                     ),
                   ),
-                  SizedBox(height: h * 0.02),
-                  SettingItem(
-                    fIcon: Icon(Icons.music_note, size: w * 0.08),
-                    fText: "Music",
-                    fWidget: Switch.adaptive(
+                  ListTile(
+                    leading: Icon(Icons.music_note, size: w * 0.08),
+                    title: Text("Music"),
+                    trailing: Switch.adaptive(
                       value: music,
                       onChanged: (value) => setState(() => music = value),
                       activeColor: const Color(0xFF6024B4),
@@ -69,21 +68,19 @@ class _PausePageState extends State<PausePage> {
                       inactiveTrackColor: Colors.white,
                     ),
                   ),
-                  SizedBox(height: h * 0.02),
-                  SettingItem(
-                    fIcon: Icon(Icons.text_fields_rounded, size: w * 0.08),
-                    fText: "Font Size",
-                    fWidget: IconButton(
+                  ListTile(
+                    leading: Icon(Icons.text_fields_rounded, size: w * 0.08),
+                    title: Text("Font Size"),
+                    trailing: IconButton(
                       iconSize: w * 0.12,
                       onPressed: () {},
                       icon: const Icon(Icons.arrow_right),
                     ),
                   ),
-                  SizedBox(height: h * 0.02),
-                  SettingItem(
-                    fIcon: Icon(Icons.palette, size: w * 0.08),
-                    fText: "Theme",
-                    fWidget: IconButton(
+                  ListTile(
+                    leading: Icon(Icons.palette, size: w * 0.08),
+                    title: Text("Theme"),
+                    trailing: IconButton(
                       iconSize: w * 0.12,
                       onPressed: () {},
                       icon: const Icon(Icons.sunny),
@@ -105,10 +102,10 @@ class _PausePageState extends State<PausePage> {
               ),
               child: Column(
                 children: [
-                  SettingItem(
-                    fIcon: Icon(Icons.settings, size: w * 0.08),
-                    fText: "Settings",
-                    fWidget: Switch.adaptive(
+                  ListTile(
+                    leading: Icon(Icons.settings, size: w * 0.08),
+                    title: Text("Settings"),
+                    trailing: Switch.adaptive(
                       value: sound,
                       onChanged: (value) => setState(() => sound = value),
                       activeColor: const Color(0xFF6024B4),
@@ -117,21 +114,20 @@ class _PausePageState extends State<PausePage> {
                       inactiveTrackColor: Colors.white,
                     ),
                   ),
-                  SizedBox(height: h * 0.02),
-                  SettingItem(
-                    fIcon: Icon(Icons.restart_alt_rounded, size: w * 0.08),
-                    fText: "Restart",
-                    fWidget: IconButton(
+                  
+                  ListTile(
+                    leading: Icon(Icons.restart_alt_rounded, size: w * 0.08),
+                    title: Text("Restart"),
+                    trailing: IconButton(
                       iconSize: w * 0.12,
                       onPressed: () {},
                       icon: const Icon(Icons.arrow_right),
                     ),
                   ),
-                  SizedBox(height: h * 0.02),
-                  SettingItem(
-                    fIcon: Icon(Icons.stop, size: w * 0.08),
-                    fText: "End Quiz",
-                    fWidget: IconButton(
+                  ListTile(
+                    leading: Icon(Icons.stop, size: w * 0.08),
+                    title: Text("End Quiz"),
+                    trailing: IconButton(
                       iconSize: w * 0.12,
                       onPressed: () {},
                       icon: const Icon(Icons.arrow_right),

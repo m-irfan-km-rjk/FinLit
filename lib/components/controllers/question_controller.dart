@@ -8,6 +8,8 @@ class QuizController extends GetxController {
   var isCorrect = false.obs;
   var selectedIndex = (-1).obs;
   var score = 0.obs;
+  var totaltime = 0.obs;
+  var timeleft = 30.obs;
 
   final questions = quizQuestions.map((q) => {
         "question": q.qtext,
