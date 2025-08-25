@@ -13,6 +13,8 @@ class QuizController extends GetxController {
 
   final questions = quizQuestions.map((q) => {
         "question": q.qtext,
+        "qattachmenttype": q.qattachmenttype,
+        "qattachment":q.qattachment,
         "image": q.qattachment,
         "options": q.qchoices,
         "correctIndex": q.correctIndex,

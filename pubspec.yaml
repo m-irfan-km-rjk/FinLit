@@ -16,6 +16,8 @@ dependencies:
   usb_serial: ^0.5.2
 
   cupertino_icons: ^1.0.8
+  flutter_soloud: ^3.2.7
+  logger: ^2.6.1
 
 dev_dependencies:
   flutter_test:

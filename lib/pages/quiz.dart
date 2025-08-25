@@ -1,10 +1,12 @@
 import 'dart:async';
+import 'package:finlit/components/misc/question.dart';
 import 'package:finlit/components/themes/ficon_extension.dart';
 import 'package:finlit/components/ui/icon_round.dart';
 import 'package:finlit/main.dart';
 import 'package:finlit/pages/pause.dart';
 import 'package:finlit/pages/quizresult.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_soloud/flutter_soloud.dart';
 import 'package:get/get.dart';
 import '../components/controllers/question_controller.dart'; // Import your QuizController
 
@@ -86,7 +88,7 @@ class QuizScreen extends StatelessWidget {
             width: double.infinity,
             height: 8,
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.2),
+              color: Colors.white70,
               borderRadius: BorderRadius.circular(4),
             ),
             child: FractionallySizedBox(
@@ -114,35 +116,59 @@ class QuizScreen extends StatelessWidget {
           const SizedBox(height: 20),
           
           // Image if available
-          if (current["image"] != null && (current["image"] as String).isNotEmpty)
-            Container(
-              height: 180,
-              width: double.infinity,
-              margin: const EdgeInsets.only(bottom: 20),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                color: Colors.white.withOpacity(0.1),
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(15),
-                child: Image.network(
-                  current["image"] as String,
-                  fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) => Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: const Icon(
-                      Icons.image_not_supported,
-                      color: Colors.white54,
-                      size: 50,
-                    ),
-                  ),
+         if (current["qattachment"] != null && (current["qattachment"] as String).isNotEmpty) 
+  Container(
+    height: current["qattachmenttype"] == AttachmentType.image ? 180 : 80,
+    width: double.infinity,
+    margin: const EdgeInsets.only(bottom: 20),
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(15),
+      color: Colors.white.withAlpha((0.1 * 255).toInt()),
+    ),
+    child: ClipRRect(
+      borderRadius: BorderRadius.circular(15),
+      child: Builder(
+        builder: (context) {
+          if (current["qattachmenttype"] == AttachmentType.image) {
+            // Show Image
+            return Image.asset(
+              current["qattachment"] as String,
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) => Container(
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: const Icon(
+                  Icons.image_not_supported,
+                  color: Colors.white54,
+                  size: 50,
                 ),
               ),
-            ),
-          
+            );
+          } else if (current["qattachmenttype"] == AttachmentType.audio) {
+            // Show Audio Player
+            return Center(
+        child: ElevatedButton(
+          onPressed: () async {
+            await SoLoud.instance.disposeAllSources();
+            await SoLoud.instance.init(); // Ensure SoLoud is initialized
+            var currentSound = await SoLoud.instance
+                .loadAsset(current["qattachment"] as String);
+
+            await SoLoud.instance.play(currentSound);
+          },
+          child: const Icon(Icons.play_arrow, color: Colors.black)
+        ),
+      );
+          } else {
+            return const SizedBox();
+          }
+        },
+      ),
+    ),
+  ),
+
           // Question text
           Container(
             width: double.infinity,
